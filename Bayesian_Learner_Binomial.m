@@ -43,18 +43,6 @@ posterior(t)=simplify(posterior(t));
 prior(t+1)=(1-H)*posterior(t)+H*beta_f; % this is the actual posterior of the trial t
 
 exp_q_analytic(t)=double(int(prior(t+1)*q, 0,1));
-%getting the q estimate from each of the distributions
-%EXPECTED VALUE vs HIGHEST PROBABILITY --- q=0:0.01:1; expectedqval(t)=trapz(q,post_function(q))*(1/101)
-post_func=prior(t+1);
-post_function=matlabFunction(post_func, 'vars', {q});
-a=0.01:0.01:0.99;
-
-%Q as expected value based on the posterior:
-exp_q(t)=sum(post_function(a)*a')/length(a);
-%
-%integr_post=int(posterior(t));
-%integr_post_func=matlabFunction(integr_post, 'vars', {q});
-%integral(integr_post_func, 0,1)
 end
 
 
