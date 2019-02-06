@@ -15,7 +15,7 @@ prior(1)=beta_f;
 %not conjoint. 
 for t=1:length(data)
     t
-    memorysize=1;
+    memorysize=3;
     if t>memorysize;
         data_useful=data(t-memorysize:t);
         k=sum(data_useful); 
@@ -35,7 +35,7 @@ likelihood(t+1)=factorial(n)/(factorial(k)*factorial(n-k))*(q^k)*((1-q)^(n-k));
 
 likelihood(t+1)=simplify(likelihood(t+1));
 %posterior at time t+1 = H*posterior(t)+(1-H)*beta
-H=20/25; %%%!!!!!!!!!!!!!!!!! Optimize later!
+H=1/25; %%%!!!!!!!!!!!!!!!!! Optimize later!
 posterior(t)=likelihood(t+1)*prior(t);
 nconstant=int(posterior(t),0,1);
 posterior(t)=posterior(t)/nconstant;
