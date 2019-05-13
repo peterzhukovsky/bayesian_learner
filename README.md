@@ -16,3 +16,5 @@ Symbolic function impementation of a Bayesian learner that plots the expected q 
 Discrete implementation of a Bayesian learner with softmax that generates probability density functions for a given dataset, just like in the reversal_learning repository. Beta and kappa in the softmax are treated as discrete and negative log(PDF) is minimized to select the best fit parameters. BIC and pseudo-r2 values are also calculated.
 
 Please note that the marginalised likelihood of the data (for any set of parameters) is not included in the algorithm.
+
+An additional function needed to run the scripts is allcomb.m from https://uk.mathworks.com/matlabcentral/fileexchange/10064-allcomb-varargin.
